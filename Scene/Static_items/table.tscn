@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=3 uid="uid://cuiltot58solf"]
+
+[ext_resource type="Script" path="res://Scene/Static_items/table.gd" id="1_3lqa6"]
+[ext_resource type="Texture2D" uid="uid://d27oerl2chold" path="res://Sprites/Locations/Room_3/Table.png" id="1_khh1y"]
+[ext_resource type="PackedScene" uid="uid://50i0vif27sqc" path="res://Scene/Items/puzzle.tscn" id="3_1bvuq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sqcft"]
+size = Vector2(84.3027, 162.725)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6d7c"]
+size = Vector2(199.002, 102.675)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7omp3"]
+radius = 55.7394
+height = 240.556
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjc1n"]
+size = Vector2(357.919, 273.118)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4oq4h"]
+size = Vector2(301.714, 268.774)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgw3x"]
+size = Vector2(178.552, 158.315)
+
+[node name="Table" type="Node2D"]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_3lqa6")
+
+[node name="Item_static_sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_khh1y")
+
+[node name="StaticBody_on_player" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody_on_player"]
+position = Vector2(-55.0169, 84.2166)
+rotation = 0.00148606
+scale = Vector2(0.999998, 0.999998)
+shape = SubResource("RectangleShape2D_sqcft")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody_on_player"]
+position = Vector2(55.7143, 105.714)
+rotation = 0.00757982
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_x6d7c")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody_on_player"]
+position = Vector2(-48.5714, 47.1429)
+rotation = -1.66359
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("CapsuleShape2D_7omp3")
+
+[node name="StaticBody_on_monster" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 36
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody_on_monster"]
+position = Vector2(-7.38156, 40.0707)
+rotation = 0.164674
+shape = SubResource("RectangleShape2D_sjc1n")
+debug_color = Color(0.86782, 0.331234, 0.330571, 0.42)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-66.8044, -40.8371)
+rotation = 0.136597
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_4oq4h")
+debug_color = Color(0.788235, 0.313726, 1, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(99.1553, -21.5348)
+rotation = 0.136597
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_kgw3x")
+debug_color = Color(0.788235, 0.313726, 1, 0.419608)
+
+[node name="Puzzle" parent="." instance=ExtResource("3_1bvuq")]
+position = Vector2(-84.2857, -34.2857)
+scale = Vector2(0.7, 0.7)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

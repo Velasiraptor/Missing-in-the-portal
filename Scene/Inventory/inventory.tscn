@@ -1,0 +1,255 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbg2y234yn5rt"]
+
+[ext_resource type="Script" path="res://Scene/Inventory/inventory.gd" id="1_62b67"]
+[ext_resource type="FontFile" uid="uid://dmbmqei025mxu" path="res://Paper.otf" id="2_lkr4p"]
+
+[node name="Inventory" type="CanvasLayer" groups=["Inventory"]]
+script = ExtResource("1_62b67")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -555.0
+offset_top = -177.0
+offset_right = 62.0
+offset_bottom = 19.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.9, 0.9)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Inventory_slot_1" type="ColorRect" parent="Control/CenterContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+color = Color(0.262745, 0.298039, 0.235294, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/CenterContainer/VBoxContainer/HBoxContainer/Inventory_slot_1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -54.0
+offset_right = 54.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/CenterContainer/VBoxContainer/HBoxContainer/Inventory_slot_1/PanelContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+
+[node name="Item_Texture_1" type="TextureRect" parent="Control/CenterContainer/VBoxContainer/HBoxContainer/Inventory_slot_1/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Number" type="Label" parent="Control/CenterContainer/VBoxContainer/HBoxContainer/Inventory_slot_1"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -48.8889
+offset_top = -46.8887
+offset_right = -8.88892
+offset_bottom = -8.88867
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.613966, 0.667377, 0.573272, 1)
+theme_override_fonts/font = ExtResource("2_lkr4p")
+theme_override_font_sizes/font_size = 35
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 64)
+layout_mode = 2
+
+[node name="Inventory_slot_2" type="ColorRect" parent="Control/CenterContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+color = Color(0.262745, 0.298039, 0.235294, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/CenterContainer/VBoxContainer/HBoxContainer/Inventory_slot_2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -54.0
+offset_right = 54.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/CenterContainer/VBoxContainer/HBoxContainer/Inventory_slot_2/PanelContainer"]
+layout_mode = 2
+
+[node name="Item_Texture_2" type="TextureRect" parent="Control/CenterContainer/VBoxContainer/HBoxContainer/Inventory_slot_2/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Number" type="Label" parent="Control/CenterContainer/VBoxContainer/HBoxContainer/Inventory_slot_2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -48.8889
+offset_top = -46.8887
+offset_right = -8.88892
+offset_bottom = -8.88867
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.613966, 0.667377, 0.573272, 1)
+theme_override_fonts/font = ExtResource("2_lkr4p")
+theme_override_font_sizes/font_size = 35
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="Control/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 64)
+layout_mode = 2
+
+[node name="Inventory_slot_3" type="ColorRect" parent="Control/CenterContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+color = Color(0.262745, 0.298039, 0.235294, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/CenterContainer/VBoxContainer/HBoxContainer/Inventory_slot_3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -54.0
+offset_right = 54.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/CenterContainer/VBoxContainer/HBoxContainer/Inventory_slot_3/PanelContainer"]
+layout_mode = 2
+
+[node name="Item_Texture_3" type="TextureRect" parent="Control/CenterContainer/VBoxContainer/HBoxContainer/Inventory_slot_3/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Number" type="Label" parent="Control/CenterContainer/VBoxContainer/HBoxContainer/Inventory_slot_3"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -48.8889
+offset_top = -46.8887
+offset_right = -8.88892
+offset_bottom = -8.88867
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.613966, 0.667377, 0.573272, 1)
+theme_override_fonts/font = ExtResource("2_lkr4p")
+theme_override_font_sizes/font_size = 35
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer4" type="MarginContainer" parent="Control/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 64)
+layout_mode = 2
+
+[node name="Inventory_slot_4" type="ColorRect" parent="Control/CenterContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+color = Color(0.262745, 0.298039, 0.235294, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/CenterContainer/VBoxContainer/HBoxContainer/Inventory_slot_4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -54.0
+offset_right = 54.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/CenterContainer/VBoxContainer/HBoxContainer/Inventory_slot_4/PanelContainer"]
+layout_mode = 2
+
+[node name="Item_Texture_4" type="TextureRect" parent="Control/CenterContainer/VBoxContainer/HBoxContainer/Inventory_slot_4/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Number" type="Label" parent="Control/CenterContainer/VBoxContainer/HBoxContainer/Inventory_slot_4"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -48.8889
+offset_top = -46.8887
+offset_right = -8.88892
+offset_bottom = -8.88867
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.613966, 0.667377, 0.573272, 1)
+theme_override_fonts/font = ExtResource("2_lkr4p")
+theme_override_font_sizes/font_size = 35
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="MarginContainer5" type="MarginContainer" parent="Control/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2

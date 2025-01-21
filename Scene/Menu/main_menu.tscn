@@ -1,0 +1,327 @@
+[gd_scene load_steps=17 format=3 uid="uid://gtd0f0veowgu"]
+
+[ext_resource type="PackedScene" uid="uid://cy0jo058egtuc" path="res://Scene/Menu/setting.tscn" id="1_05jvj"]
+[ext_resource type="Texture2D" uid="uid://b8ime0fr6awi2" path="res://Sprites/UI/Main_menu.png" id="1_px8dc"]
+[ext_resource type="Texture2D" uid="uid://bt7i807dix57h" path="res://Sprites/UI/Logo_RU.png" id="2_arkm2"]
+[ext_resource type="Texture2D" uid="uid://3igy05ck3xbs" path="res://Sprites/UI/RU.png" id="2_f1s3a"]
+[ext_resource type="Texture2D" uid="uid://dnfub5gggoq3i" path="res://Sprites/UI/Button.png" id="2_gwdsc"]
+[ext_resource type="Texture2D" uid="uid://dro0pfn60qcp0" path="res://Sprites/UI/Button_focus.png" id="3_hmi0e"]
+[ext_resource type="FontFile" uid="uid://dmbmqei025mxu" path="res://Paper.otf" id="4_mwvfn"]
+[ext_resource type="FontFile" uid="uid://cxpivi3hhba2h" path="res://Top_font_file.tres" id="5_kyxrb"]
+[ext_resource type="Texture2D" uid="uid://j0jimua4w6kd" path="res://Sprites/Items/Lamps/light.png" id="7_pfcw1"]
+[ext_resource type="AudioStream" uid="uid://d1w7ve2m5kk00" path="res://Sounds/lamps_sound.mp3" id="8_8it02"]
+[ext_resource type="AudioStream" uid="uid://bic3p40uu77ip" path="res://Sounds/sound_Zzz_lamp.mp3" id="9_nqn6q"]
+[ext_resource type="PackedScene" uid="uid://cgs3ocsniws7t" path="res://Scene/igbgui.tscn" id="12_5cjnl"]
+
+[sub_resource type="GDScript" id="GDScript_otxul"]
+script/source = "extends Control
+
+var scene = Globals.difficulty_scene
+@onready var setting = %Setting
+
+#__________переменные для перевода_______________
+@onready var logo = %Logo
+var logo_ru = preload(\"res://Sprites/UI/Logo_RU.png\")
+var logo_en = preload(\"res://Sprites/UI/Logo_EN.png\")
+@onready var label_play = %Label_Play
+@onready var label_setting = %Label_Setting
+@onready var button_language = %Button_Language
+var icon_RU = preload(\"res://Sprites/UI/RU.png\")
+var icon_EN = preload(\"res://Sprites/UI/EN.png\")
+#________________________________________________
+
+
+func _ready():
+	$igbgui.set_game_ready()
+	if Globals.language == \"ru\":
+		get_tree().call_group(\"Language\", \"language_RU\")
+	elif Globals.language == \"en\":
+		get_tree().call_group(\"Language\", \"language_EN\")
+
+
+func _on_button_play_pressed(): # кнопка играть
+	get_tree().change_scene_to_packed(scene)
+	
+
+func _on_button_setting_pressed(): # кнопка настроек
+	setting.setting_visible()
+
+
+func language_RU(): # все что должно быть на ру
+	button_language.texture_normal = icon_RU
+	logo.texture = logo_ru 
+	label_play.text = \"ИГРАТЬ\"
+	label_setting.text = \"НАСТРОЙКИ\"
+	$Button_Language/Label_Language.text = \"                  Язык\"
+func language_EN(): # все что должно быть на англ
+	button_language.texture_normal = icon_EN
+	logo.texture = logo_en
+	label_play.text = \"PLAY\"
+	label_setting.text = \"SETTING\"
+	$Button_Language/Label_Language.text = \"                         language\"
+
+func _on_button_language_pressed():
+	if Globals.language == \"ru\":
+		get_tree().call_group(\"Language\", \"language_EN\")
+		Globals.language = \"en\"
+		Globals.save_game()
+	elif Globals.language == \"en\":
+		get_tree().call_group(\"Language\", \"language_RU\")
+		Globals.language = \"ru\"
+		Globals.save_game()
+"
+
+[sub_resource type="Animation" id="Animation_dwl1m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lamps_sound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_h1fs1"]
+resource_name = "new_animation"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.8, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lamps_sound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4.73333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rs7sk"]
+_data = {
+"RESET": SubResource("Animation_dwl1m"),
+"new_animation": SubResource("Animation_h1fs1")
+}
+
+[node name="Main_menu" type="Control" groups=["Language", "Main_menu"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_otxul")
+
+[node name="Main" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_px8dc")
+
+[node name="Button_Language" type="TextureButton" parent="."]
+unique_name_in_owner = true
+modulate = Color(0.703808, 0.703808, 0.703808, 1)
+layout_mode = 1
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 832.0
+offset_bottom = 833.0
+scale = Vector2(0.12, 0.12)
+texture_normal = ExtResource("2_f1s3a")
+
+[node name="Label_Language" type="Label" parent="Button_Language"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.621237, 0.692522, 0.478158, 1)
+theme_override_colors/font_outline_color = Color(0.931817, 1, 0.776454, 1)
+theme_override_constants/outline_size = 80
+theme_override_fonts/font = ExtResource("4_mwvfn")
+theme_override_font_sizes/font_size = 400
+text = "                  Язык"
+vertical_alignment = 1
+
+[node name="Logo" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 987.0
+offset_top = 142.0
+offset_right = 1300.0
+offset_bottom = 391.0
+texture = ExtResource("2_arkm2")
+
+[node name="CenterContainer_main" type="CenterContainer" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.5
+offset_top = -54.5
+offset_right = 40.5
+offset_bottom = 54.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer_main"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer_main/VBoxContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+
+[node name="Margin_left" type="MarginContainer" parent="CenterContainer_main/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer_main/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+
+[node name="Margin_top" type="MarginContainer" parent="CenterContainer_main/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
+
+[node name="Button_play" type="TextureButton" parent="CenterContainer_main/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_gwdsc")
+texture_hover = ExtResource("3_hmi0e")
+
+[node name="Label_Play" type="Label" parent="CenterContainer_main/VBoxContainer/HBoxContainer/VBoxContainer/Button_play"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.513726, 0.580392, 0.376471, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_mwvfn")
+theme_override_font_sizes/font_size = 64
+text = "Играть"
+
+[node name="Button_setting" type="TextureButton" parent="CenterContainer_main/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_gwdsc")
+texture_hover = ExtResource("3_hmi0e")
+
+[node name="Label_Setting" type="Label" parent="CenterContainer_main/VBoxContainer/HBoxContainer/VBoxContainer/Button_setting"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.513726, 0.580392, 0.376471, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_kyxrb")
+theme_override_font_sizes/font_size = 54
+text = "Найстройки"
+
+[node name="Margin_bottom" type="MarginContainer" parent="CenterContainer_main/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Margin_right" type="MarginContainer" parent="CenterContainer_main/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Setting" parent="." instance=ExtResource("1_05jvj")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="Light" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.423529)
+position = Vector2(1759, 376)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_pfcw1")
+
+[node name="Light2" type="Sprite2D" parent="Light"]
+modulate = Color(1, 1, 1, 0.423529)
+show_behind_parent = true
+position = Vector2(-294, 1026)
+scale = Vector2(4, 4)
+texture = ExtResource("7_pfcw1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Light"]
+libraries = {
+"": SubResource("AnimationLibrary_rs7sk")
+}
+autoplay = "new_animation"
+
+[node name="lamps_sound" type="AudioStreamPlayer2D" parent="Light"]
+stream = ExtResource("8_8it02")
+volume_db = -15.0
+
+[node name="Zzz" type="AudioStreamPlayer2D" parent="Light"]
+stream = ExtResource("9_nqn6q")
+volume_db = -15.0
+autoplay = true
+
+[node name="igbgui" parent="." instance=ExtResource("12_5cjnl")]
+game_ready = true
+
+[connection signal="pressed" from="Button_Language" to="." method="_on_button_language_pressed"]
+[connection signal="pressed" from="CenterContainer_main/VBoxContainer/HBoxContainer/VBoxContainer/Button_play" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="CenterContainer_main/VBoxContainer/HBoxContainer/VBoxContainer/Button_setting" to="." method="_on_button_setting_pressed"]

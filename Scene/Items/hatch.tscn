@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://c58vppifwouj5"]
+
+[ext_resource type="Script" path="res://Scene/Items/hatch.gd" id="1_cvrdf"]
+[ext_resource type="Texture2D" uid="uid://dx8tj1uqhn6eh" path="res://Sprites/Items/Hatch_close.png" id="1_lq1ft"]
+[ext_resource type="Texture2D" uid="uid://cx2waeidxbblf" path="res://Sprites/Items/Hatch_open.png" id="2_vehmg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ptlfr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lq1ft")
+}],
+"loop": true,
+"name": &"Close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vehmg")
+}],
+"loop": true,
+"name": &"Open",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8xds8"]
+radius = 182.332
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_px1pu"]
+load_path = "res://.godot/imported/circle_light.png-ea7be3356199a949fe50979ab7f1d4f4.ctex"
+
+[node name="Hatch" type="AnimatedSprite2D" groups=["Hatch"]]
+sprite_frames = SubResource("SpriteFrames_ptlfr")
+animation = &"Close"
+script = ExtResource("1_cvrdf")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_8xds8")
+debug_color = Color(0.572549, 0.529412, 0.462745, 0.419608)
+
+[node name="CircleLight" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0.937255, 0.603922, 0, 0.207843)
+show_behind_parent = true
+scale = Vector2(0.1625, 0.112919)
+texture = SubResource("CompressedTexture2D_px1pu")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

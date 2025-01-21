@@ -1,0 +1,142 @@
+[gd_scene load_steps=7 format=3 uid="uid://crs1eeo52pfst"]
+
+[ext_resource type="Script" path="res://Scene/Locations/Prologue/prologue.gd" id="1_euj3l"]
+[ext_resource type="FontFile" uid="uid://dmbmqei025mxu" path="res://Paper.otf" id="1_pmq7v"]
+[ext_resource type="AudioStream" uid="uid://bfwg6r7se0det" path="res://Sounds/Talking/Dialog_Voice.mp3" id="3_3ndh3"]
+
+[sub_resource type="Animation" id="Animation_s0o0u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label_prologue:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_hvp6l"]
+resource_name = "prologue_text"
+length = 24.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label_prologue:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 18.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(24),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_game_start_room"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../AudioStreamPlayer2D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.96667, 2.16667, 2.36667, 2.56667, 2.76667, 2.96667, 3.16667, 3.36667, 3.56667, 3.76667, 3.96667, 4.16667, 4.36667, 4.56667, 4.76667, 5, 5.2, 5.4, 5.6, 5.86667, 6.06667, 6.26667, 6.46667, 6.66667, 6.9, 7.1, 7.3, 7.5, 7.7, 7.93333, 8.13333, 8.33333, 8.53333, 8.86667, 9.06667, 9.26667, 9.46667, 9.66667, 9.9, 10.1, 10.3, 10.5, 10.7, 10.9333, 11.1333, 11.3333, 11.5333, 11.8667, 12.0667, 12.2667, 12.4667, 12.6667, 12.9, 13.1, 13.4333, 13.6333, 13.8333, 14.0333, 14.2333, 14.4667, 14.6667, 14.8667, 15.0667, 15.2667, 15.4667, 15.6667, 15.8667, 16.2667, 16.4667, 16.6667, 16.8667, 17.0667, 17.2667, 17.4667, 17.6667, 17.8667, 18.0667, 18.2667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_88tq1"]
+_data = {
+"RESET": SubResource("Animation_s0o0u"),
+"prologue_text": SubResource("Animation_hvp6l")
+}
+
+[node name="Prologue" type="Control" groups=["Language"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_euj3l")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -112.0
+offset_top = -33.0
+offset_right = 2064.0
+offset_bottom = 1132.0
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label_prologue" type="Label" parent="CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_fonts/font = ExtResource("1_pmq7v")
+theme_override_font_sizes/font_size = 64
+text = "Я не видела мужа два дня после ночи 31 октября, 
+когда он ушел в секретную лабораторию.
+Единственное сообщение от него было:
+ 
+\"ЖЁЛТАЯ ПРОБИРКА!\"
+
+Потеряв надежду на его возвращение, 
+я отправилась искать его сама."
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_88tq1")
+}
+autoplay = "prologue_text"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_3ndh3")
+volume_db = -15.0

@@ -1,0 +1,104 @@
+[gd_scene load_steps=14 format=3 uid="uid://by2880lq8nutb"]
+
+[ext_resource type="Script" path="res://Scene/Static_items/static_item_chem_table_start_room.gd" id="1_otthr"]
+[ext_resource type="Texture2D" uid="uid://ddr1pwnowo18" path="res://Sprites/Locations/Room_start/Room_start_chem_table.png" id="1_ri1fg"]
+[ext_resource type="PackedScene" uid="uid://iq00p1la27i4" path="res://Scene/Items/bottle_portal.tscn" id="3_wiyba"]
+[ext_resource type="Texture2D" uid="uid://dx6wxlvp7i14x" path="res://Sprites/Items/Big_bottle_blue.png" id="4_262bn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_de6hf"]
+size = Vector2(354.37, 143.139)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpndi"]
+size = Vector2(141.183, 36.8592)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jaw8a"]
+size = Vector2(115.145, 36.8592)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oopyc"]
+size = Vector2(56.3016, 36.8592)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3l8k"]
+size = Vector2(251.814, 49.1852)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1uid"]
+size = Vector2(293.091, 123.009)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ik7sw"]
+size = Vector2(150.148, 69.7024)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3uqg5"]
+size = Vector2(245.718, 165.981)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e12ru"]
+size = Vector2(239.23, 256.06)
+
+[node name="Static_item_chem_table_start_room" type="Node2D"]
+script = ExtResource("1_otthr")
+
+[node name="Item_static_sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("1_ri1fg")
+
+[node name="StaticBody_on_player" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody_on_player"]
+position = Vector2(-14.1096, 79.7147)
+rotation = 0.526324
+shape = SubResource("RectangleShape2D_de6hf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody_on_player"]
+position = Vector2(142, 109)
+rotation = 0.518863
+shape = SubResource("RectangleShape2D_cpndi")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody_on_player"]
+position = Vector2(137.849, 181.723)
+rotation = -0.67538
+shape = SubResource("RectangleShape2D_jaw8a")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody_on_player"]
+position = Vector2(62, 113)
+rotation = -1.46809
+shape = SubResource("RectangleShape2D_oopyc")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody_on_player"]
+position = Vector2(-46.0435, 60.2005)
+rotation = 0.197215
+shape = SubResource("RectangleShape2D_x3l8k")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(43, -103)
+rotation = 1.76737
+shape = SubResource("RectangleShape2D_p1uid")
+debug_color = Color(0.788235, 0.313726, 1, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(191, 57)
+rotation = -1.60659
+shape = SubResource("RectangleShape2D_ik7sw")
+debug_color = Color(0.788235, 0.313726, 1, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(131.32, -30.642)
+rotation = -1.30156
+shape = SubResource("RectangleShape2D_3uqg5")
+debug_color = Color(0.788235, 0.313726, 1, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-119.788, -39.1496)
+rotation = 1.09888
+shape = SubResource("RectangleShape2D_e12ru")
+debug_color = Color(0.788235, 0.313726, 1, 0.419608)
+
+[node name="Bottle_portal" parent="." instance=ExtResource("3_wiyba")]
+position = Vector2(-82, -84)
+texture = ExtResource("4_262bn")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,0 +1,131 @@
+[gd_scene load_steps=17 format=3 uid="uid://cr8mbgfg35bv7"]
+
+[ext_resource type="PackedScene" uid="uid://bnr25141xaasf" path="res://Scene/Static_items/static_item.tscn" id="1_mpyle"]
+[ext_resource type="Texture2D" uid="uid://gfel54bjcq1b" path="res://Sprites/Locations/Room_1/Chem_table.png" id="2_fgfq8"]
+[ext_resource type="PackedScene" uid="uid://2byht6mi5ho5" path="res://Scene/Items/item.tscn" id="3_vbdlb"]
+[ext_resource type="Texture2D" uid="uid://cuev7k3v8m77n" path="res://Sprites/Items/Bottle_blue.png" id="4_g0nby"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gxscw"]
+load_path = "res://.godot/imported/box_2.png-f2b26f9996d8eee10830f2b6650f1de1.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mylpo"]
+load_path = "res://.godot/imported/box_3.png-52cfd0565ff149d409ea809051ca0757.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqotm"]
+size = Vector2(354.37, 143.139)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4l7y"]
+size = Vector2(141.183, 36.8592)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3qnq"]
+size = Vector2(115.145, 36.8592)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1gnp"]
+size = Vector2(251.814, 49.1852)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2dv12"]
+size = Vector2(293.091, 123.009)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78xhk"]
+size = Vector2(150.148, 69.7024)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_grdhh"]
+size = Vector2(245.718, 165.981)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_csd2p"]
+size = Vector2(239.23, 256.06)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gvwpm"]
+radius = 56.2228
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u7ggu"]
+load_path = "res://.godot/imported/circle_light.png-ea7be3356199a949fe50979ab7f1d4f4.ctex"
+
+[node name="Static_item_chem_table" instance=ExtResource("1_mpyle")]
+
+[node name="Item_static_sprite" parent="." index="0"]
+texture = ExtResource("2_fgfq8")
+
+[node name="Box2" parent="Item_static_sprite" index="0"]
+modulate = Color(1, 1, 1, 0)
+texture = SubResource("CompressedTexture2D_gxscw")
+
+[node name="Box3" parent="Item_static_sprite" index="1"]
+modulate = Color(1, 1, 1, 0)
+texture = SubResource("CompressedTexture2D_mylpo")
+
+[node name="StaticBody_on_player" parent="." index="1"]
+collision_mask = 6
+
+[node name="CollisionShape2D" parent="StaticBody_on_player" index="0"]
+position = Vector2(-14.1096, 79.7147)
+rotation = 0.526324
+shape = SubResource("RectangleShape2D_kqotm")
+
+[node name="CollisionShape2D2" parent="StaticBody_on_player" index="1"]
+position = Vector2(142, 109)
+rotation = 0.518863
+shape = SubResource("RectangleShape2D_k4l7y")
+
+[node name="CollisionShape2D5" parent="StaticBody_on_player" index="2"]
+position = Vector2(137.849, 181.723)
+rotation = -0.67538
+shape = SubResource("RectangleShape2D_q3qnq")
+
+[node name="CollisionShape2D6" parent="StaticBody_on_player" index="3"]
+position = Vector2(62, 113)
+
+[node name="CollisionShape2D4" parent="StaticBody_on_player" index="4"]
+position = Vector2(-46.0435, 60.2005)
+shape = SubResource("RectangleShape2D_c1gnp")
+
+[node name="CollisionShape2D" parent="StaticBody_on_monster" index="0"]
+position = Vector2(-297, 360.59)
+
+[node name="CollisionShape2D2" parent="StaticBody_on_monster" index="1"]
+position = Vector2(-98.1154, 428.876)
+
+[node name="CollisionShape2D3" parent="StaticBody_on_monster" index="2"]
+position = Vector2(-276.568, 209)
+
+[node name="CollisionShape2D4" parent="StaticBody_on_monster" index="3"]
+position = Vector2(111, 124)
+rotation = -0.142308
+
+[node name="Area2D" parent="." index="3"]
+visible = true
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(43, -103)
+rotation = 1.76737
+shape = SubResource("RectangleShape2D_2dv12")
+
+[node name="CollisionShape2D2" parent="Area2D" index="1"]
+position = Vector2(191, 57)
+rotation = -1.60659
+shape = SubResource("RectangleShape2D_78xhk")
+
+[node name="CollisionShape2D3" parent="Area2D" index="2"]
+position = Vector2(131.32, -30.642)
+rotation = -1.30156
+shape = SubResource("RectangleShape2D_grdhh")
+
+[node name="CollisionShape2D4" parent="Area2D" index="3"]
+position = Vector2(-119.788, -39.1496)
+rotation = 1.09888
+shape = SubResource("RectangleShape2D_csd2p")
+
+[node name="Item" parent="." index="4" instance=ExtResource("3_vbdlb")]
+position = Vector2(-106, -114)
+scale = Vector2(1, 1)
+texture = ExtResource("4_g0nby")
+item_sprite = ExtResource("4_g0nby")
+
+[node name="CollisionShape2D" parent="Item/Area2D" index="0"]
+shape = SubResource("CircleShape2D_gvwpm")
+
+[node name="CircleLight" parent="Item" index="1"]
+scale = Vector2(0.05, 0.05)
+texture = SubResource("CompressedTexture2D_u7ggu")
+
+[editable path="Item"]

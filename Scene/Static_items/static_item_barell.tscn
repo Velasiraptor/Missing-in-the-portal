@@ -1,0 +1,113 @@
+[gd_scene load_steps=17 format=3 uid="uid://3hy8y5luxeql"]
+
+[ext_resource type="PackedScene" uid="uid://bnr25141xaasf" path="res://Scene/Static_items/static_item.tscn" id="1_mqw33"]
+[ext_resource type="Texture2D" uid="uid://fvtiyh4si0oe" path="res://Sprites/Static_items/barrel.png" id="2_77k8m"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fd5cj"]
+load_path = "res://.godot/imported/box_2.png-f2b26f9996d8eee10830f2b6650f1de1.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_du2y6"]
+load_path = "res://.godot/imported/box_3.png-52cfd0565ff149d409ea809051ca0757.ctex"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fealp"]
+radius = 30.3941
+height = 165.21
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqu3n"]
+size = Vector2(28.7158, 27.9097)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvht8"]
+size = Vector2(56.9602, 39.9351)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0h4i7"]
+size = Vector2(24.5728, 22.6136)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vke4"]
+size = Vector2(23.343, 16.3282)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_moeam"]
+size = Vector2(87.5974, 115.771)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cabb2"]
+size = Vector2(146.934, 92.0187)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2q6i4"]
+size = Vector2(200.959, 97.539)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ph8oc"]
+size = Vector2(210.084, 186.158)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdd7t"]
+size = Vector2(115.226, 53.399)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31yn8"]
+size = Vector2(59.7586, 204.119)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0irii"]
+size = Vector2(153.08, 111.13)
+
+[node name="Static_item_barell" instance=ExtResource("1_mqw33")]
+
+[node name="Item_static_sprite" parent="." index="0"]
+texture = ExtResource("2_77k8m")
+
+[node name="Box2" parent="Item_static_sprite" index="0"]
+modulate = Color(1, 1, 1, 0)
+texture = SubResource("CompressedTexture2D_fd5cj")
+
+[node name="Box3" parent="Item_static_sprite" index="1"]
+modulate = Color(1, 1, 1, 0)
+texture = SubResource("CompressedTexture2D_du2y6")
+
+[node name="CollisionShape2D" parent="StaticBody_on_player" index="0"]
+position = Vector2(1, 83)
+rotation = -1.44163
+shape = SubResource("CapsuleShape2D_fealp")
+
+[node name="CollisionShape2D2" parent="StaticBody_on_player" index="1"]
+position = Vector2(-2, 87)
+shape = SubResource("RectangleShape2D_cqu3n")
+
+[node name="CollisionShape2D5" parent="StaticBody_on_player" index="2"]
+position = Vector2(9, 81)
+shape = SubResource("RectangleShape2D_gvht8")
+
+[node name="CollisionShape2D6" parent="StaticBody_on_player" index="3"]
+position = Vector2(21, 88)
+shape = SubResource("RectangleShape2D_0h4i7")
+
+[node name="CollisionShape2D4" parent="StaticBody_on_player" index="4"]
+position = Vector2(-27, 76)
+shape = SubResource("RectangleShape2D_7vke4")
+
+[node name="CollisionShape2D" parent="StaticBody_on_monster" index="0"]
+position = Vector2(48.717, 5.2824)
+shape = SubResource("RectangleShape2D_moeam")
+
+[node name="CollisionShape2D2" parent="StaticBody_on_monster" index="1"]
+position = Vector2(-1.30632, 4.88947)
+rotation = -0.0299157
+shape = SubResource("RectangleShape2D_cabb2")
+
+[node name="CollisionShape2D3" parent="StaticBody_on_monster" index="2"]
+position = Vector2(-1.48166, -81.23)
+shape = SubResource("RectangleShape2D_2q6i4")
+
+[node name="Area2D" parent="." index="3"]
+visible = true
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(2, -39)
+shape = SubResource("RectangleShape2D_ph8oc")
+
+[node name="CollisionShape2D2" parent="Area2D" index="1"]
+position = Vector2(9, -69)
+shape = SubResource("RectangleShape2D_pdd7t")
+
+[node name="CollisionShape2D3" parent="Area2D" index="2"]
+position = Vector2(76, -24)
+shape = SubResource("RectangleShape2D_31yn8")
+
+[node name="CollisionShape2D4" parent="Area2D" index="3"]
+position = Vector2(-7, -34)
+shape = SubResource("RectangleShape2D_0irii")

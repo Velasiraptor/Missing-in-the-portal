@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bna2rf6c6f8x"]
+
+[ext_resource type="Texture2D" uid="uid://b6nfqo2ly32rx" path="res://Sprites/Items/Bottle_yelow.png" id="1_6dvgo"]
+[ext_resource type="Script" path="res://Scene/Items/bottle_yelow.gd" id="2_oxbwp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6mq8r"]
+radius = 73.0069
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5vjrf"]
+load_path = "res://.godot/imported/circle_light.png-ea7be3356199a949fe50979ab7f1d4f4.ctex"
+
+[node name="Bottle_yelow" type="Sprite2D" groups=["Yelow_bottle_in_attic"]]
+texture = ExtResource("1_6dvgo")
+script = ExtResource("2_oxbwp")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_6mq8r")
+debug_color = Color(0.572549, 0.529412, 0.462745, 0.419608)
+
+[node name="CircleLight" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0.937255, 0.603922, 0, 0.207843)
+show_behind_parent = true
+scale = Vector2(0.05, 0.05)
+texture = SubResource("CompressedTexture2D_5vjrf")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

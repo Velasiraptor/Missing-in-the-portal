@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://cjikg4d3avwln"]
+
+[ext_resource type="PackedScene" uid="uid://cd84k1gmfwuai" path="res://Scene/Player/player.tscn" id="1_a48qa"]
+[ext_resource type="Texture2D" uid="uid://bhdgkahusvrtm" path="res://Sprites/Player/Ctrl_start.png" id="2_sxfgi"]
+[ext_resource type="Texture2D" uid="uid://ddydmgy68ic6o" path="res://Sprites/Player/Idle_start_1.png" id="3_n5aas"]
+[ext_resource type="Texture2D" uid="uid://bvel4uauum0p1" path="res://Sprites/Player/Idle_start_2.png" id="4_o1bie"]
+[ext_resource type="Texture2D" uid="uid://b8j8wrp7taut3" path="res://Sprites/Player/Walk_start_1.png" id="5_xp3oq"]
+[ext_resource type="Texture2D" uid="uid://ce6hrt63qbqrx" path="res://Sprites/Player/Walk_start_2.png" id="6_ul3nw"]
+[ext_resource type="Texture2D" uid="uid://bscalh285kwcp" path="res://Sprites/Player/Walk_start_3.png" id="7_gyajb"]
+[ext_resource type="Texture2D" uid="uid://bgxywaqqwvwpt" path="res://Sprites/Player/Walk_start_4.png" id="8_wfwow"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_msbv7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sxfgi")
+}],
+"loop": false,
+"name": &"ctrl",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_n5aas")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_n5aas")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_n5aas")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_n5aas")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_n5aas")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_n5aas")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_o1bie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_o1bie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_o1bie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_o1bie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_o1bie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_o1bie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_o1bie")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_xp3oq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ul3nw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gyajb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wfwow")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="Player_start" instance=ExtResource("1_a48qa")]
+
+[node name="Player_sprite" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_msbv7")
+animation = &"walk"
+frame_progress = 0.0179114

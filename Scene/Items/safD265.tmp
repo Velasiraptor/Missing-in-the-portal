@@ -1,0 +1,269 @@
+[gd_scene load_steps=6 format=3 uid="uid://bb34wywih3341"]
+
+[ext_resource type="Texture2D" uid="uid://c6buttvxymgb0" path="res://icon.svg" id="1_t68m5"]
+[ext_resource type="Script" path="res://Scene/Items/safe_with_gun.gd" id="2_e7j12"]
+[ext_resource type="Texture2D" uid="uid://k068syh3gu1t" path="res://Sprites/Items/circle_light.png" id="2_ifpeo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ntwnk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_t68m5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d28mf"]
+radius = 183.134
+
+[node name="Safe_with_gun" type="AnimatedSprite2D"]
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_ntwnk")
+script = ExtResource("2_e7j12")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_d28mf")
+debug_color = Color(0.572549, 0.529412, 0.462745, 0.419608)
+
+[node name="CircleLight" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0.937255, 0.603922, 0, 0.207843)
+show_behind_parent = true
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_ifpeo")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/CenterContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Label_code" type="Label" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel_1" type="Panel" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Button_1" type="Button" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/HBoxContainer/Panel_1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+icon_alignment = 1
+
+[node name="Panel_2" type="Panel" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Button_2" type="Button" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/HBoxContainer/Panel_2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "2"
+icon_alignment = 1
+
+[node name="Panel_3" type="Panel" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Button_3" type="Button" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/HBoxContainer/Panel_3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "3"
+icon_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel_4" type="Panel" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Button_4" type="Button" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/HBoxContainer2/Panel_4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "4"
+icon_alignment = 1
+
+[node name="Panel2_5" type="Panel" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Button_5" type="Button" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/HBoxContainer2/Panel2_5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "5
+"
+icon_alignment = 1
+
+[node name="Panel3_6" type="Panel" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Button_6" type="Button" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/HBoxContainer2/Panel3_6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "6"
+icon_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Control/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel_7" type="Panel" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Button_7" type="Button" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/HBoxContainer3/Panel_7"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "7"
+icon_alignment = 1
+
+[node name="Panel2_8" type="Panel" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Button_8" type="Button" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/HBoxContainer3/Panel2_8"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "8"
+icon_alignment = 1
+
+[node name="Panel3_9" type="Panel" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Button_9" type="Button" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/HBoxContainer3/Panel3_9"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "9"
+icon_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/Control/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Exit" type="ColorPickerButton" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/HBoxContainer4/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.352941, 0, 0, 1)
+
+[node name="Panel_0" type="Panel" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Button_0" type="Button" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/HBoxContainer4/Panel_0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+icon_alignment = 1
+
+[node name="Panell" type="Panel" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="input_code" type="ColorPickerButton" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/HBoxContainer4/Panell"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.317647, 0.027451, 1)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

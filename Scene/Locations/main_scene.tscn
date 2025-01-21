@@ -1,0 +1,1138 @@
+[gd_scene load_steps=45 format=3 uid="uid://by3dur7b1vmbl"]
+
+[ext_resource type="Script" path="res://Scene/Locations/main_scene.gd" id="1_puexd"]
+[ext_resource type="PackedScene" uid="uid://cd84k1gmfwuai" path="res://Scene/Player/player.tscn" id="1_xs4sr"]
+[ext_resource type="PackedScene" uid="uid://djxvdgie1o8ul" path="res://Scene/UI/Exit_in_main_menu/exit_in_main_menu.tscn" id="2_t1a1f"]
+[ext_resource type="PackedScene" uid="uid://17nede0go02f" path="res://Scene/Locations/room_1.tscn" id="3_77lai"]
+[ext_resource type="PackedScene" uid="uid://d2gxymvkfyph5" path="res://Scene/Locations/room_2.tscn" id="4_eles6"]
+[ext_resource type="PackedScene" uid="uid://d0o3e7bijbix8" path="res://Scene/Locations/room_3.tscn" id="5_mbq6v"]
+[ext_resource type="PackedScene" uid="uid://k6146ms2r0oc" path="res://Scene/Locations/room_4.tscn" id="6_0ftef"]
+[ext_resource type="PackedScene" uid="uid://chwoffolxxkjg" path="res://Scene/Locations/basement.tscn" id="7_yl880"]
+[ext_resource type="PackedScene" uid="uid://7ugbnjaqve78" path="res://Scene/Locations/staircase_to_the_attic.tscn" id="8_3ds16"]
+[ext_resource type="PackedScene" uid="uid://cpnignvwyuiu3" path="res://Scene/Locations/attic.tscn" id="9_pdxnc"]
+[ext_resource type="Texture2D" uid="uid://dw25ix5dul5ha" path="res://Sprites/Aran/Aran.png" id="11_qatsk"]
+[ext_resource type="Texture2D" uid="uid://bemdfgx6mo3tl" path="res://Sprites/Aran/Aran_talk.png" id="12_fhr37"]
+[ext_resource type="Texture2D" uid="uid://lib5ehxjsivv" path="res://Sprites/Aran/Aran_talk_2.png" id="13_1ggos"]
+[ext_resource type="AudioStream" uid="uid://b6gvgbk767y1p" path="res://Sounds/shot.mp3" id="13_qekid"]
+[ext_resource type="Texture2D" uid="uid://cbqyy58n7g2ed" path="res://Sprites/Player/Idle_1.png" id="14_ih133"]
+[ext_resource type="Texture2D" uid="uid://cwmn37j3p8jww" path="res://Sprites/Player/Idle.png" id="14_wnyhk"]
+[ext_resource type="Texture2D" uid="uid://cf7pvrw1eipkf" path="res://Sprites/Player/Idle_3.png" id="15_jlrhq"]
+[ext_resource type="Texture2D" uid="uid://djhwbvemiqi8m" path="res://Sprites/Player/Player_gun_1.png" id="15_nuu8o"]
+[ext_resource type="Texture2D" uid="uid://ci17p7dep5d66" path="res://Sprites/Player/Player_gun_2.png" id="16_sltrl"]
+[ext_resource type="Texture2D" uid="uid://btkckdjehactl" path="res://Sprites/Player/Player_talk.png" id="16_ybig3"]
+[ext_resource type="Texture2D" uid="uid://didn67c4dlnsa" path="res://Sprites/Player/Player_gun_3.png" id="17_epm8x"]
+[ext_resource type="FontFile" uid="uid://dmbmqei025mxu" path="res://Paper.otf" id="18_14bae"]
+[ext_resource type="Texture2D" uid="uid://domcyto61y312" path="res://Sprites/Player/Death.png" id="22_2cvqs"]
+[ext_resource type="AudioStream" uid="uid://4jh5xy8mpn82" path="res://Sounds/Game over.wav" id="24_6fvt5"]
+[ext_resource type="PackedScene" uid="uid://cgs3ocsniws7t" path="res://Scene/igbgui.tscn" id="25_j7i5o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukad0"]
+size = Vector2(166.186, 90.8326)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jex3y"]
+size = Vector2(122.081, 90.8326)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sqnkx"]
+size = Vector2(113.303, 55.6316)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fgjmt"]
+size = Vector2(113.303, 55.6316)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_osh85"]
+size = Vector2(150.216, 55.6316)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jss6u"]
+size = Vector2(122.081, 90.8326)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nch5v"]
+size = Vector2(297.607, 68.5001)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qh5c0"]
+size = Vector2(297.607, 68.5001)
+
+[sub_resource type="Animation" id="Animation_dbnx5"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_r0epy"]
+resource_name = "aran_talk"
+length = 48.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player_talk:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 3.3, 7.4, 7.5, 38.5, 43.3, 43.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [&"talk", &"talk", &"idle", &"talk", &"talk", &"idle", &"talk", &"talk", &"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Aran:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 0.9, 2.6, 2.7, 8.1, 38, 38.4, 43.3, 48.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [&"idle", &"idle", &"talk", &"talk", &"idle", &"talk", &"idle", &"idle", &"talk", &"idle"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(47.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"canvas_layer_yes_no_visible_on"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player_talk/Label_Aran!:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Player_talk/Label_Aran!:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Aran/Label_what?:visible_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.8, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Aran/Label_what?:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Player_talk/Label_I_Kira:visible_ratio")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 3.3, 7.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Player_talk/Label_I_Kira:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 23.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Aran/Label_no!:visible_ratio")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 8, 37.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Aran/Label_no!:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 43.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Player_talk/Label_go_home:visible_ratio")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 38.4, 44.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Player_talk/Label_go_home:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 47.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Aran/Label_NONO!!!:visible_ratio")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 43.3, 47.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Aran/Label_NONO!!!:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b6txs"]
+_data = {
+"RESET": SubResource("Animation_dbnx5"),
+"aran_talk": SubResource("Animation_r0epy")
+}
+
+[sub_resource type="Animation" id="Animation_hxgtl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Canvas_finish_bad/AudioStreamPlayer2D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_kdo0i"]
+resource_name = "no"
+length = 16.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Aran:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(4.1, 6.2, 6.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"talk", &"talk", &"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%Player_talk:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.7, 3.7, 3.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"talk", &"talk", &"idle"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%Player_talk/Label_sorry_No:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.7, 3.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%Player_talk/Label_sorry_No:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 6.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%Aran/Label_KILL:visible_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3.2, 6.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%Aran/Label_KILL:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 8.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Canvas_finish_bad/ColorBLACK:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 6.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Canvas_finish_bad/ColorBLACK/Death_sprite:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 7.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Aran/Label_NONO!!!:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Aran/Label_NONO!!!:visible_ratio")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Canvas_finish_bad/AudioStreamPlayer2D:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(7.23333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3a6c3"]
+_data = {
+"RESET": SubResource("Animation_hxgtl"),
+"no": SubResource("Animation_kdo0i")
+}
+
+[sub_resource type="Animation" id="Animation_311q1"]
+resource_name = "yes"
+length = 2.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Player_talk:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"talk", &"talk", &"gun"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%Player_talk/Label_sorry_Yes:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%Player_talk/Label_sorry_Yes:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"good_finish"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%Aran:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%Player_talk:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Audio_yes:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_obdvt"]
+_data = {
+"yes": SubResource("Animation_311q1")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kih6x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_qatsk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_qatsk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fhr37")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qatsk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fhr37")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fhr37")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1ggos")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oyjxb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_nuu8o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_sltrl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_sltrl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_sltrl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_epm8x")
+}],
+"loop": false,
+"name": &"gun",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_ih133")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ih133")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ih133")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ih133")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ih133")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ih133")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ih133")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_jlrhq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_ybig3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_wnyhk")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfnsr"]
+size = Vector2(297.607, 68.5001)
+
+[node name="Main_scene" type="Node2D" groups=["Language", "Main_scene"]]
+script = ExtResource("1_puexd")
+
+[node name="Exit_in_main_menu" parent="." instance=ExtResource("2_t1a1f")]
+
+[node name="Player" parent="." instance=ExtResource("1_xs4sr")]
+unique_name_in_owner = true
+modulate = Color(0.717647, 0.764706, 0.678431, 1)
+position = Vector2(83, 188)
+scale = Vector2(0.8, 0.8)
+
+[node name="room_1" parent="." instance=ExtResource("3_77lai")]
+scale = Vector2(0.8, 0.8)
+
+[node name="left_door_room_1" type="Marker2D" parent="room_1"]
+unique_name_in_owner = true
+position = Vector2(-367.5, -67.5)
+
+[node name="right_door_room_1" type="Marker2D" parent="room_1"]
+unique_name_in_owner = true
+position = Vector2(467.5, 70)
+
+[node name="camera_room_1" type="Camera2D" parent="room_1"]
+unique_name_in_owner = true
+zoom = Vector2(1.25, 1.25)
+
+[node name="Room_2" parent="." instance=ExtResource("4_eles6")]
+position = Vector2(-24, -1598)
+scale = Vector2(1, 1)
+
+[node name="left_door_room_2" type="Marker2D" parent="Room_2"]
+unique_name_in_owner = true
+position = Vector2(-225, 18)
+
+[node name="right_door_room_2" type="Marker2D" parent="Room_2"]
+unique_name_in_owner = true
+position = Vector2(640, 157)
+
+[node name="door_in_staircase" type="Marker2D" parent="Room_2"]
+unique_name_in_owner = true
+position = Vector2(540, 180)
+
+[node name="camera_room_2" type="Camera2D" parent="Room_2"]
+unique_name_in_owner = true
+
+[node name="Room_3" parent="." instance=ExtResource("5_mbq6v")]
+position = Vector2(2959, 2)
+
+[node name="left_door_room_3" type="Marker2D" parent="Room_3"]
+unique_name_in_owner = true
+position = Vector2(-596, 110)
+
+[node name="right_door_in_basement_room_3" type="Marker2D" parent="Room_3"]
+unique_name_in_owner = true
+position = Vector2(452, 98)
+
+[node name="camera_room_3" type="Camera2D" parent="Room_3"]
+unique_name_in_owner = true
+
+[node name="Room_4" parent="." instance=ExtResource("6_0ftef")]
+position = Vector2(-2538, -1568)
+
+[node name="right_door_room_4" type="Marker2D" parent="Room_4"]
+unique_name_in_owner = true
+position = Vector2(361, 78)
+
+[node name="camera_room_4" type="Camera2D" parent="Room_4"]
+unique_name_in_owner = true
+
+[node name="Basement" parent="." instance=ExtResource("7_yl880")]
+position = Vector2(2964, 1838)
+
+[node name="right_door_basement" type="Marker2D" parent="Basement"]
+unique_name_in_owner = true
+position = Vector2(466, 26)
+
+[node name="camera_basement" type="Camera2D" parent="Basement"]
+unique_name_in_owner = true
+
+[node name="Staircase_to_the_attic" parent="." instance=ExtResource("8_3ds16")]
+position = Vector2(-40, -3264)
+
+[node name="down_door_staircase" type="Marker2D" parent="Staircase_to_the_attic"]
+unique_name_in_owner = true
+position = Vector2(-2, 163)
+
+[node name="up_door_staircase" type="Marker2D" parent="Staircase_to_the_attic"]
+unique_name_in_owner = true
+position = Vector2(8, 3)
+
+[node name="camera_staircase" type="Camera2D" parent="Staircase_to_the_attic"]
+unique_name_in_owner = true
+
+[node name="Attic" parent="." instance=ExtResource("9_pdxnc")]
+position = Vector2(-29, -5139)
+
+[node name="door_attic" type="Marker2D" parent="Attic"]
+unique_name_in_owner = true
+position = Vector2(-333, 278)
+
+[node name="camera_attic" type="Camera2D" parent="Attic"]
+unique_name_in_owner = true
+
+[node name="Area_doors" type="Node2D" parent="."]
+
+[node name="Area_door_room_1_left" type="Area2D" parent="Area_doors"]
+position = Vector2(-391, -69)
+rotation = -0.35163
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_doors/Area_door_room_1_left"]
+position = Vector2(55.8013, -4.02683)
+shape = SubResource("RectangleShape2D_ukad0")
+debug_color = Color(0.746123, 0.725002, 3.85046e-07, 0.42)
+
+[node name="Area_door_room_1_right" type="Area2D" parent="Area_doors"]
+position = Vector2(438, -5.00001)
+rotation = 0.286043
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_doors/Area_door_room_1_right"]
+position = Vector2(57.7314, -12.8099)
+shape = SubResource("RectangleShape2D_ukad0")
+debug_color = Color(0.746123, 0.725002, 3.85046e-07, 0.42)
+
+[node name="Area_door_room_2_right" type="Area2D" parent="Area_doors"]
+position = Vector2(639, -1493)
+rotation = 0.324831
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_doors/Area_door_room_2_right"]
+position = Vector2(60.1219, 11.5001)
+shape = SubResource("RectangleShape2D_jex3y")
+debug_color = Color(0.746123, 0.725002, 3.85046e-07, 0.42)
+
+[node name="Area_door_room_3_left" type="Area2D" parent="Area_doors"]
+position = Vector2(2295, 29)
+rotation = -0.12261
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_doors/Area_door_room_3_left"]
+position = Vector2(56.073, 11.5)
+shape = SubResource("RectangleShape2D_ukad0")
+debug_color = Color(0.746123, 0.725002, 3.85046e-07, 0.42)
+
+[node name="Area_door_in_basement_room_3_right" type="Area2D" parent="Area_doors"]
+position = Vector2(3377, 150)
+rotation = -0.12261
+collision_mask = 2
+
+[node name="CollisionShape2D_hatch" type="CollisionShape2D" parent="Area_doors/Area_door_in_basement_room_3_right"]
+unique_name_in_owner = true
+position = Vector2(-5.38961, -103.436)
+rotation = -0.0124582
+skew = -0.68766
+shape = SubResource("RectangleShape2D_ukad0")
+disabled = true
+debug_color = Color(0.746123, 0.725002, 3.85046e-07, 0.42)
+
+[node name="Area_door_room_3_right" type="Area2D" parent="Area_doors"]
+position = Vector2(3377, 150)
+rotation = -0.12261
+collision_mask = 2
+
+[node name="CollisionShape2D_hatch" type="CollisionShape2D" parent="Area_doors/Area_door_room_3_right"]
+position = Vector2(-84.2492, 1689.38)
+rotation = 0.648508
+shape = SubResource("RectangleShape2D_sqnkx")
+debug_color = Color(0.746123, 0.725002, 3.85046e-07, 0.42)
+
+[node name="Area_door_room_2_left" type="Area2D" parent="Area_doors"]
+position = Vector2(-296, -1620)
+rotation = -0.942749
+collision_mask = 2
+
+[node name="CollisionShape2D_card" type="CollisionShape2D" parent="Area_doors/Area_door_room_2_left"]
+unique_name_in_owner = true
+rotation = 0.648508
+shape = SubResource("RectangleShape2D_fgjmt")
+disabled = true
+debug_color = Color(0.746123, 0.725002, 3.85046e-07, 0.42)
+
+[node name="Area_door_room_4_right" type="Area2D" parent="Area_doors"]
+position = Vector2(-2155, -1598)
+rotation = -0.363317
+collision_mask = 2
+
+[node name="CollisionShape2D_card" type="CollisionShape2D" parent="Area_doors/Area_door_room_4_right"]
+position = Vector2(14.7095, 11.1475)
+rotation = 0.648508
+shape = SubResource("RectangleShape2D_osh85")
+debug_color = Color(0.746123, 0.725002, 3.85046e-07, 0.42)
+
+[node name="Area_door_in_staircase" type="Area2D" parent="Area_doors"]
+position = Vector2(457, -1478)
+rotation = -0.419678
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_doors/Area_door_in_staircase"]
+position = Vector2(61.327, -0.0123892)
+shape = SubResource("RectangleShape2D_jss6u")
+debug_color = Color(0.746123, 0.725002, 3.85046e-07, 0.42)
+
+[node name="Area_door_in_staircase_room_2" type="Area2D" parent="Area_doors"]
+position = Vector2(-146, -2849)
+rotation = -0.653157
+collision_mask = 2
+
+[node name="CollisionShape2D_card" type="CollisionShape2D" parent="Area_doors/Area_door_in_staircase_room_2"]
+position = Vector2(69.5576, 60.7883)
+rotation = 0.648508
+shape = SubResource("RectangleShape2D_nch5v")
+debug_color = Color(0.746123, 0.725002, 3.85046e-07, 0.42)
+
+[node name="Area_door_in_attic" type="Area2D" parent="Area_doors"]
+position = Vector2(-101, -3348)
+rotation = -0.653157
+collision_mask = 2
+
+[node name="CollisionShape2D_card" type="CollisionShape2D" parent="Area_doors/Area_door_in_attic"]
+position = Vector2(69.5576, 60.7883)
+rotation = 0.648508
+shape = SubResource("RectangleShape2D_qh5c0")
+debug_color = Color(0.746123, 0.725002, 3.85046e-07, 0.42)
+
+[node name="Animation_Aran_1" type="AnimationPlayer" parent="Area_doors/Area_door_in_attic"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_b6txs")
+}
+
+[node name="Animation_No" type="AnimationPlayer" parent="Area_doors/Area_door_in_attic"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_3a6c3")
+}
+
+[node name="Animation_Yes" type="AnimationPlayer" parent="Area_doors/Area_door_in_attic"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_obdvt")
+}
+
+[node name="Audio_yes" type="AudioStreamPlayer" parent="Area_doors/Area_door_in_attic"]
+stream = ExtResource("13_qekid")
+bus = &"Sounds"
+
+[node name="Aran" type="AnimatedSprite2D" parent="Area_doors/Area_door_in_attic"]
+unique_name_in_owner = true
+modulate = Color(0.882353, 0.905882, 0.862745, 1)
+position = Vector2(1318.84, -1261.12)
+rotation = 0.640032
+scale = Vector2(0.54, 0.54)
+sprite_frames = SubResource("SpriteFrames_kih6x")
+animation = &"idle"
+
+[node name="Label_what?" type="Label" parent="Area_doors/Area_door_in_attic/Aran"]
+unique_name_in_owner = true
+visible = false
+offset_left = -67.404
+offset_top = -367.583
+offset_right = 335.596
+offset_bottom = -299.583
+rotation = 0.058571
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("18_14bae")
+theme_override_font_sizes/font_size = 64
+text = "Что? Кто здесь?"
+horizontal_alignment = 1
+
+[node name="Label_no!" type="Label" parent="Area_doors/Area_door_in_attic/Aran"]
+unique_name_in_owner = true
+offset_left = -633.165
+offset_top = -1004.69
+offset_right = 903.835
+offset_bottom = -155.693
+rotation = 0.0297769
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("18_14bae")
+theme_override_font_sizes/font_size = 64
+text = "НЕТ! Не подходи ко мне. Это место сводит с ума...
+Каждая мысль здесь подталкивает к черте безумия. 
+Я провел слишком много времени и уже никогда не буду прежним. 
+Эта тварь внизу... 
+Я заперся от нее, но не смог выбраться. 
+Я испугался. Убей меня, закончи страдания..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label_NONO!!!" type="Label" parent="Area_doors/Area_door_in_attic/Aran"]
+unique_name_in_owner = true
+visible = false
+offset_left = -598.805
+offset_top = -800.521
+offset_right = 894.195
+offset_bottom = 48.4795
+rotation = 0.019267
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("18_14bae")
+theme_override_font_sizes/font_size = 64
+text = "НЕТ! 
+ТЫ ДОЛЖНА МЕНЯ УБИТЬ. 
+Прошу..."
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Label_KILL" type="Label" parent="Area_doors/Area_door_in_attic/Aran"]
+unique_name_in_owner = true
+offset_left = -615.907
+offset_top = -767.409
+offset_right = 877.093
+offset_bottom = 81.5912
+rotation = 0.0083783
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("18_14bae")
+theme_override_font_sizes/font_size = 64
+text = "Зря ты сделала 
+такой выбор."
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Player_talk" type="AnimatedSprite2D" parent="Area_doors/Area_door_in_attic"]
+unique_name_in_owner = true
+modulate = Color(0.882353, 0.905882, 0.862745, 1)
+position = Vector2(711.373, -1360.79)
+rotation = 0.66415
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_oyjxb")
+animation = &"idle"
+
+[node name="Label_Aran!" type="Label" parent="Area_doors/Area_door_in_attic/Player_talk"]
+unique_name_in_owner = true
+visible = false
+offset_left = -77.5934
+offset_top = -462.925
+offset_right = 78.4066
+offset_bottom = -394.925
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("18_14bae")
+theme_override_font_sizes/font_size = 64
+text = "Аран!"
+horizontal_alignment = 1
+
+[node name="Label_I_Kira" type="Label" parent="Area_doors/Area_door_in_attic/Player_talk"]
+unique_name_in_owner = true
+visible = false
+offset_left = -715.11
+offset_top = -574.674
+offset_right = 729.89
+offset_bottom = -293.674
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("18_14bae")
+theme_override_font_sizes/font_size = 64
+text = "Это я, Кира, я пришла
+ за тобой! 
+Давай выбираться 
+отсюда!"
+horizontal_alignment = 1
+
+[node name="Label_go_home" type="Label" parent="Area_doors/Area_door_in_attic/Player_talk"]
+unique_name_in_owner = true
+offset_left = -715.11
+offset_top = -574.674
+offset_right = 729.89
+offset_bottom = -293.674
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("18_14bae")
+theme_override_font_sizes/font_size = 64
+text = "Что ты такое говоришь? 
+Не переживай, я вытащу 
+тебя отсюда, пойдем..."
+horizontal_alignment = 1
+visible_characters = 47
+visible_ratio = 0.68306
+
+[node name="Label_sorry_Yes" type="Label" parent="Area_doors/Area_door_in_attic/Player_talk"]
+unique_name_in_owner = true
+visible = false
+offset_left = -99.7211
+offset_top = -428.93
+offset_right = 56.2789
+offset_bottom = -360.93
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("18_14bae")
+theme_override_font_sizes/font_size = 64
+text = "Прости.."
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Label_sorry_No" type="Label" parent="Area_doors/Area_door_in_attic/Player_talk"]
+unique_name_in_owner = true
+offset_left = -251.727
+offset_top = -458.927
+offset_right = 189.273
+offset_bottom = -319.927
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("18_14bae")
+theme_override_font_sizes/font_size = 64
+text = "Я... я не могу этого 
+сделать, прости.."
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="CanvasLayer_Yes_No" type="CanvasLayer" parent="Area_doors/Area_door_in_attic"]
+unique_name_in_owner = true
+layer = 2
+
+[node name="Control" type="Control" parent="Area_doors/Area_door_in_attic/CanvasLayer_Yes_No"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Area_doors/Area_door_in_attic/CanvasLayer_Yes_No/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Area_doors/Area_door_in_attic/CanvasLayer_Yes_No/Control/CenterContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Area_doors/Area_door_in_attic/CanvasLayer_Yes_No/Control/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Area_doors/Area_door_in_attic/CanvasLayer_Yes_No/Control/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Area_doors/Area_door_in_attic/CanvasLayer_Yes_No/Control/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Area_doors/Area_door_in_attic/CanvasLayer_Yes_No/Control/CenterContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+color = Color(0, 0.996078, 0.666667, 1)
+
+[node name="Button_No" type="Button" parent="Area_doors/Area_door_in_attic/CanvasLayer_Yes_No/Control/CenterContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("18_14bae")
+theme_override_font_sizes/font_size = 24
+text = "Не убивать"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Area_doors/Area_door_in_attic/CanvasLayer_Yes_No/Control/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="Area_doors/Area_door_in_attic/CanvasLayer_Yes_No/Control/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Area_doors/Area_door_in_attic/CanvasLayer_Yes_No/Control/CenterContainer/VBoxContainer/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+color = Color(0, 0.996078, 0.666667, 1)
+
+[node name="Button_Yes" type="Button" parent="Area_doors/Area_door_in_attic/CanvasLayer_Yes_No/Control/CenterContainer/VBoxContainer/HBoxContainer/MarginContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("18_14bae")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "*Закрыто*"
+
+[node name="Canvas_finish_bad" type="CanvasLayer" parent="Area_doors/Area_door_in_attic"]
+layer = 2
+
+[node name="ColorBLACK" type="ColorRect" parent="Area_doors/Area_door_in_attic/Canvas_finish_bad"]
+unique_name_in_owner = true
+visible = false
+z_index = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Death_sprite" type="Sprite2D" parent="Area_doors/Area_door_in_attic/Canvas_finish_bad/ColorBLACK"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0.882353, 0.905882, 0.862745, 1)
+position = Vector2(1020.9, 595.702)
+texture = ExtResource("22_2cvqs")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="Area_doors/Area_door_in_attic/Canvas_finish_bad"]
+stream = ExtResource("24_6fvt5")
+volume_db = -10.0
+
+[node name="Area_door_in_staircase_up" type="Area2D" parent="Area_doors"]
+position = Vector2(-344, -4588)
+rotation = -1.07127
+collision_mask = 2
+
+[node name="CollisionShape2D_card" type="CollisionShape2D" parent="Area_doors/Area_door_in_staircase_up"]
+position = Vector2(69.5576, 60.7883)
+rotation = 0.648508
+shape = SubResource("RectangleShape2D_lfnsr")
+debug_color = Color(0.746123, 0.725002, 3.85046e-07, 0.42)
+
+[node name="igbgui" parent="." instance=ExtResource("25_j7i5o")]
+
+[connection signal="body_entered" from="Area_doors/Area_door_room_1_left" to="." method="_on_area_door_room_1_left_body_entered"]
+[connection signal="body_entered" from="Area_doors/Area_door_room_1_right" to="." method="_on_area_door_room_1_right_body_entered"]
+[connection signal="body_entered" from="Area_doors/Area_door_room_2_right" to="." method="_on_area_door_room_2_right_body_entered"]
+[connection signal="body_entered" from="Area_doors/Area_door_room_3_left" to="." method="_on_area_door_room_3_left_body_entered"]
+[connection signal="body_entered" from="Area_doors/Area_door_in_basement_room_3_right" to="." method="_on_area_door_in_basement_room_3_right_body_entered"]
+[connection signal="body_entered" from="Area_doors/Area_door_room_3_right" to="." method="_on_area_door_room_3_right_body_entered"]
+[connection signal="body_entered" from="Area_doors/Area_door_room_2_left" to="." method="_on_area_door_room_2_left_body_entered"]
+[connection signal="body_entered" from="Area_doors/Area_door_room_4_right" to="." method="_on_area_door_room_4_right_body_entered"]
+[connection signal="body_entered" from="Area_doors/Area_door_in_staircase" to="." method="_on_area_door_in_staircase_body_entered"]
+[connection signal="body_entered" from="Area_doors/Area_door_in_staircase_room_2" to="." method="_on_area_door_in_staircase_room_2_body_entered"]
+[connection signal="body_entered" from="Area_doors/Area_door_in_attic" to="." method="_on_area_door_in_attic_body_entered"]
+[connection signal="pressed" from="Area_doors/Area_door_in_attic/CanvasLayer_Yes_No/Control/CenterContainer/VBoxContainer/HBoxContainer/MarginContainer/Button_No" to="." method="_on_button_no_pressed"]
+[connection signal="pressed" from="Area_doors/Area_door_in_attic/CanvasLayer_Yes_No/Control/CenterContainer/VBoxContainer/HBoxContainer/MarginContainer3/Button_Yes" to="." method="_on_button_yes_pressed"]
+[connection signal="body_entered" from="Area_doors/Area_door_in_staircase_up" to="." method="_on_area_door_in_staircase_up_body_entered"]

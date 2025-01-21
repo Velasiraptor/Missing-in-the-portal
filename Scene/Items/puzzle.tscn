@@ -1,0 +1,233 @@
+[gd_scene load_steps=12 format=3 uid="uid://50i0vif27sqc"]
+
+[ext_resource type="Texture2D" uid="uid://brtrdajqbbs5t" path="res://Sprites/Items/Puzzle_close.png" id="1_lqtk0"]
+[ext_resource type="Texture2D" uid="uid://dpv0sb8opvunp" path="res://Sprites/Items/Puzzle_open.png" id="2_cga2w"]
+[ext_resource type="Script" path="res://Scene/Items/puzzle.gd" id="3_cpswp"]
+[ext_resource type="AudioStream" uid="uid://bcf0dtbutdsvl" path="res://Sounds/puzzle.mp3" id="4_t4txi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yfe12"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lqtk0")
+}],
+"loop": true,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cga2w")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1lcn1"]
+load_path = "res://.godot/imported/Card.png-8238c23b07740db0a672cdaf4a4eea28.ctex"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ach7h"]
+radius = 154.742
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ytk0u"]
+load_path = "res://.godot/imported/circle_light.png-ea7be3356199a949fe50979ab7f1d4f4.ctex"
+
+[sub_resource type="Animation" id="Animation_p3rj2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_w7ryc"]
+resource_name = "rotation_panel"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0378294, -0.0383972, 0.0383972, -0.0383972, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_moxiu"]
+_data = {
+"RESET": SubResource("Animation_p3rj2"),
+"rotation_panel": SubResource("Animation_w7ryc")
+}
+
+[node name="Puzzle" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_yfe12")
+animation = &"close"
+script = ExtResource("3_cpswp")
+item_sprite = SubResource("CompressedTexture2D_1lcn1")
+
+[node name="Area2D_puzzle" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_puzzle"]
+position = Vector2(-19, 15)
+rotation = 0.50167
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("CircleShape2D_ach7h")
+debug_color = Color(0.572549, 0.529412, 0.462745, 0.419608)
+
+[node name="CircleLight" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0.937255, 0.603922, 0, 0.207843)
+show_behind_parent = true
+position = Vector2(-11, 17)
+scale = Vector2(0.1, 0.1)
+texture = SubResource("CompressedTexture2D_ytk0u")
+
+[node name="CanvasLayer_puzzle_panel" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 2
+
+[node name="Control" type="Control" parent="CanvasLayer_puzzle_panel"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 757.0
+offset_top = -286.0
+offset_right = 757.0
+offset_bottom = -286.0
+grow_vertical = 0
+scale = Vector2(1.2, 1.2)
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer_puzzle_panel/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer_puzzle_panel/Control/CenterContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer_puzzle_panel/Control/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel_1" type="Panel" parent="CanvasLayer_puzzle_panel/Control/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="Button_1" type="Button" parent="CanvasLayer_puzzle_panel/Control/CenterContainer/VBoxContainer/HBoxContainer/Panel_1"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+text = "Li"
+icon_alignment = 1
+
+[node name="Panel_2" type="Panel" parent="CanvasLayer_puzzle_panel/Control/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="Button_2" type="Button" parent="CanvasLayer_puzzle_panel/Control/CenterContainer/VBoxContainer/HBoxContainer/Panel_2"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+text = "Li"
+icon_alignment = 1
+
+[node name="Panel_3" type="Panel" parent="CanvasLayer_puzzle_panel/Control/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="Button_3" type="Button" parent="CanvasLayer_puzzle_panel/Control/CenterContainer/VBoxContainer/HBoxContainer/Panel_3"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+text = "Li"
+icon_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer_puzzle_panel/Control/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer_puzzle_panel/Control/CenterContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer_puzzle_panel/Control/CenterContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer_puzzle_panel/Control/CenterContainer/VBoxContainer/HBoxContainer4/Panel"]
+layout_mode = 2
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 44.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.713726, 0, 0, 1)
+
+[node name="Exit" type="Button" parent="CanvasLayer_puzzle_panel/Control/CenterContainer/VBoxContainer/HBoxContainer4/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer_puzzle_panel/Control/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="Animation_panel" type="AnimationPlayer" parent="CanvasLayer_puzzle_panel"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_moxiu")
+}
+
+[node name="Audio_puzzle" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_t4txi")
+
+[connection signal="body_entered" from="Area2D_puzzle" to="." method="_on_area_2d_puzzle_body_entered"]
+[connection signal="body_exited" from="Area2D_puzzle" to="." method="_on_area_2d_puzzle_body_exited"]
+[connection signal="pressed" from="CanvasLayer_puzzle_panel/Control/CenterContainer/VBoxContainer/HBoxContainer/Panel_1/Button_1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="CanvasLayer_puzzle_panel/Control/CenterContainer/VBoxContainer/HBoxContainer/Panel_2/Button_2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer_puzzle_panel/Control/CenterContainer/VBoxContainer/HBoxContainer/Panel_3/Button_3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="CanvasLayer_puzzle_panel/Control/CenterContainer/VBoxContainer/HBoxContainer4/Panel/Exit" to="." method="_on_exit_pressed"]

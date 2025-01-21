@@ -1,0 +1,607 @@
+[gd_scene load_steps=35 format=3 uid="uid://17nede0go02f"]
+
+[ext_resource type="Script" path="res://Scene/Locations/room_1.gd" id="1_6laf3"]
+[ext_resource type="Texture2D" uid="uid://bdr31yqsx523b" path="res://Sprites/Locations/Room_1/Room_1.png" id="1_nguwg"]
+[ext_resource type="Texture2D" uid="uid://wkbqdykw6g5g" path="res://Sprites/Monster/Monster_door.png" id="2_dg3l8"]
+[ext_resource type="PackedScene" uid="uid://cr8mbgfg35bv7" path="res://Scene/Static_items/static_item_chem_table.tscn" id="3_6400r"]
+[ext_resource type="Texture2D" uid="uid://coeb0qjn5yeox" path="res://Sprites/Locations/Room_1/Botlles.png" id="3_eg7as"]
+[ext_resource type="PackedScene" uid="uid://bb34wywih3341" path="res://Scene/Items/safe_with_gun.tscn" id="5_khvsp"]
+[ext_resource type="PackedScene" uid="uid://dv86qhk6qoiof" path="res://Scene/Monster/monster.tscn" id="6_tfxn3"]
+[ext_resource type="AudioStream" uid="uid://bqf2v78di4umn" path="res://Music/Monster_music.wav" id="7_4066v"]
+
+[sub_resource type="Animation" id="Animation_an2la"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Monster:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-363, 10000)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Monster:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0416433]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Monster:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.8, 0.8)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"collide_monster_off"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_7lxbo"]
+resource_name = "left_door"
+length = 12.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MonsterDoor_left:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.717647, 0.764706, 0.678431, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Monster:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3, 6, 8, 11.9, 12.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-363, -202), Vector2(-26.0001, -43), Vector2(-26.0001, -43), Vector2(578, -122), Vector2(635, -161)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Monster:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Monster:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3, 6, 8, 11.9, 12.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0416433, -0.129433, -0.129433, -0.101018, -0.211991]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 6, 8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"walk_monster"
+}, {
+"args": [],
+"method": &"idle_monster"
+}, {
+"args": [],
+"method": &"walk_monster"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Monster:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3, 3.3, 11.9, 12.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.717647, 0.764706, 0.678431, 1), Color(0.717647, 0.764706, 0.678431, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Monster:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 12.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(0.8, 0.8)]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 3.3, 12.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"collide_monster_off"
+}, {
+"args": [],
+"method": &"collide_monster_on"
+}, {
+"args": [],
+"method": &"collide_monster_off"
+}]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Animation_monster_room_1/Audio_monster:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Animation_monster_room_1/Audio_monster:volume_db")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 4.5, 8.5, 12.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-50.0, -20.0, -20.0, -50.0]
+}
+
+[sub_resource type="Animation" id="Animation_kqbwk"]
+resource_name = "right_door"
+length = 12.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Monster:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(3, 6, 8, 11.9, 12.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(560, -94), Vector2(-26.0001, -43), Vector2(-26.0001, -43), Vector2(-423, -244), Vector2(-472, -228)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Monster:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Monster:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3, 6, 8, 11.9, 12.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0416433, -0.129433, -0.129433, -0.21322, -0.26287]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 6, 8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"walk_monster"
+}, {
+"args": [],
+"method": &"idle_monster"
+}, {
+"args": [],
+"method": &"walk_monster"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Monster:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3, 3.3, 11.9, 12.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.717647, 0.764706, 0.678431, 1), Color(0.717647, 0.764706, 0.678431, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Monster:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3, 12.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-0.8, 0.8), Vector2(-0.8, 0.8), Vector2(-0.8, 0.8)]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 3.3, 12.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"collide_monster_off"
+}, {
+"args": [],
+"method": &"collide_monster_on"
+}, {
+"args": [],
+"method": &"collide_monster_off"
+}]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MonsterDoor_right:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.3, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.717647, 0.764706, 0.678431, 1), Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Animation_monster_room_1/Audio_monster:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Animation_monster_room_1/Audio_monster:volume_db")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 4.5, 8.5, 12.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-70.0, -40.0, -40.0, -70.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kyrdd"]
+_data = {
+"RESET": SubResource("Animation_an2la"),
+"left_door": SubResource("Animation_7lxbo"),
+"right_door": SubResource("Animation_kqbwk")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3tu5d"]
+size = Vector2(459.046, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fn1y1"]
+size = Vector2(111.776, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70drl"]
+size = Vector2(36.1516, 28.6868)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bxrgr"]
+size = Vector2(36.1516, 36.6514)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wlfb"]
+size = Vector2(36.1516, 225.889)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dksyj"]
+size = Vector2(139.681, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_frufo"]
+size = Vector2(156.33, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r41eg"]
+size = Vector2(210.498, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8m6t"]
+size = Vector2(129.427, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxb0k"]
+size = Vector2(129.427, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aiov4"]
+size = Vector2(251.4, 17.5889)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjls3"]
+size = Vector2(57.4459, 18.5305)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dc66i"]
+size = Vector2(515.726, 42.2384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iuwdi"]
+size = Vector2(821.519, 42.2384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3au1q"]
+size = Vector2(198.821, 42.2384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hx71u"]
+size = Vector2(123.722, 42.2384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x352c"]
+size = Vector2(42.6144, 42.2384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pexuy"]
+size = Vector2(42.6144, 250.923)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ci50t"]
+size = Vector2(42.6144, 79.6745)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7gin"]
+size = Vector2(42.6144, 89.817)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2avv"]
+size = Vector2(42.6144, 175.118)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66p18"]
+size = Vector2(42.6144, 142.816)
+
+[node name="room_1" type="StaticBody2D" groups=["Room_1"]]
+collision_mask = 2
+script = ExtResource("1_6laf3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -1321.0
+offset_top = -849.0
+offset_right = 1303.0
+offset_bottom = 828.0
+color = Color(0, 0, 0, 1)
+
+[node name="Room1" type="Sprite2D" parent="."]
+texture = ExtResource("1_nguwg")
+
+[node name="MonsterDoor_left" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-465, -251)
+rotation = -0.271487
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_dg3l8")
+
+[node name="MonsterDoor_right" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(656, -127)
+rotation = 0.185718
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_dg3l8")
+flip_h = true
+
+[node name="Safe_with_gun" parent="." instance=ExtResource("5_khvsp")]
+position = Vector2(-66, -150)
+scale = Vector2(1, 1)
+
+[node name="Monster" parent="." instance=ExtResource("6_tfxn3")]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-363, 10000)
+rotation = 0.0416433
+scale = Vector2(-0.8, 0.8)
+
+[node name="Botlles" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(405, 329)
+texture = ExtResource("3_eg7as")
+
+[node name="Timer_monster_room_1" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 14.0
+one_shot = true
+
+[node name="Animation_monster_room_1" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_kyrdd")
+}
+
+[node name="Audio_monster" type="AudioStreamPlayer" parent="Animation_monster_room_1"]
+stream = ExtResource("7_4066v")
+volume_db = -50.0
+bus = &"Sounds"
+
+[node name="Static_item_chem_table" parent="." instance=ExtResource("3_6400r")]
+position = Vector2(-218, 241)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(217.372, 13.6819)
+rotation = -0.0376705
+shape = SubResource("RectangleShape2D_3tu5d")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(462, 16)
+rotation = 0.312729
+shape = SubResource("RectangleShape2D_fn1y1")
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="."]
+position = Vector2(511.872, 30.734)
+rotation = -2.07658
+shape = SubResource("RectangleShape2D_70drl")
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="."]
+position = Vector2(518.065, 19.0897)
+rotation = -2.9892
+shape = SubResource("RectangleShape2D_bxrgr")
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="."]
+position = Vector2(700, 64)
+rotation = -3.00612
+shape = SubResource("RectangleShape2D_bxrgr")
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="."]
+position = Vector2(619.417, 15.8452)
+rotation = 1.83142
+shape = SubResource("RectangleShape2D_7wlfb")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(744.41, 106.852)
+rotation = 0.279719
+shape = SubResource("RectangleShape2D_dksyj")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(731.131, 171.369)
+rotation = -0.742947
+shape = SubResource("RectangleShape2D_frufo")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2(583.316, 233.601)
+rotation = -0.0514261
+shape = SubResource("RectangleShape2D_r41eg")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="."]
+position = Vector2(439.769, 274.824)
+rotation = -0.670123
+shape = SubResource("RectangleShape2D_e8m6t")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="."]
+position = Vector2(361, 365)
+rotation = -1.03345
+shape = SubResource("RectangleShape2D_hxb0k")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="."]
+position = Vector2(234.317, 448.078)
+rotation = -0.499211
+shape = SubResource("RectangleShape2D_aiov4")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="."]
+position = Vector2(122.032, 530.867)
+rotation = 1.80424
+shape = SubResource("RectangleShape2D_fjls3")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="."]
+position = Vector2(160, 560)
+rotation = 0.000874714
+shape = SubResource("RectangleShape2D_dc66i")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="."]
+position = Vector2(-355, 350)
+rotation = 0.556499
+shape = SubResource("RectangleShape2D_iuwdi")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="."]
+position = Vector2(-585.734, 97.112)
+rotation = -0.34226
+shape = SubResource("RectangleShape2D_3au1q")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="."]
+position = Vector2(-520.695, 26.8322)
+rotation = -1.76659
+shape = SubResource("RectangleShape2D_hx71u")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="."]
+position = Vector2(-501.164, -29.6778)
+rotation = 2.8495
+shape = SubResource("RectangleShape2D_x352c")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="."]
+position = Vector2(-315, -106)
+rotation = 2.8495
+shape = SubResource("RectangleShape2D_x352c")
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="."]
+position = Vector2(-422, -103)
+rotation = 1.20143
+shape = SubResource("RectangleShape2D_pexuy")
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="."]
+position = Vector2(-273, -119)
+rotation = 1.27368
+shape = SubResource("RectangleShape2D_ci50t")
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="."]
+position = Vector2(-236.763, -105.741)
+rotation = 1.92122
+shape = SubResource("RectangleShape2D_h7gin")
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="."]
+position = Vector2(-188, -48)
+rotation = 3.13852
+shape = SubResource("RectangleShape2D_h7gin")
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="."]
+position = Vector2(-121.872, 19.068)
+rotation = 2.05864
+shape = SubResource("RectangleShape2D_t2avv")
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 26)
+rotation = 1.07101
+shape = SubResource("RectangleShape2D_66p18")
+
+[connection signal="timeout" from="Timer_monster_room_1" to="." method="_on_timer_monster_timeout"]

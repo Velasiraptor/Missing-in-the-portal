@@ -1,0 +1,201 @@
+[gd_scene load_steps=6 format=3 uid="uid://cy0jo058egtuc"]
+
+[ext_resource type="Script" path="res://Scene/Menu/setting.gd" id="1_h1cxd"]
+[ext_resource type="Texture2D" uid="uid://dnfub5gggoq3i" path="res://Sprites/UI/Button.png" id="2_fw02t"]
+[ext_resource type="Texture2D" uid="uid://bjubaqakuognh" path="res://Sprites/UI/Setting_RU.png" id="2_x46mk"]
+[ext_resource type="FontFile" uid="uid://cxpivi3hhba2h" path="res://Top_font_file.tres" id="3_fdmqg"]
+[ext_resource type="FontFile" uid="uid://dmbmqei025mxu" path="res://Paper.otf" id="4_28n8d"]
+
+[node name="Setting" type="Control" groups=["Language"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h1cxd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.764706)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -960.0
+offset_right = 960.0
+offset_bottom = 604.0
+grow_horizontal = 2
+
+[node name="MarginContainer5" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1920, 80)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1920, 100)
+layout_mode = 2
+
+[node name="Label_control" type="Label" parent="VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.513726, 0.580392, 0.376471, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("4_28n8d")
+theme_override_font_sizes/font_size = 62
+text = "УПРАвЛЕНИЕ"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1920, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+
+[node name="Texture_setting" type="TextureRect" parent="VBoxContainer/MarginContainer2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_x46mk")
+
+[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1920, 570)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer3"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MarginContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+
+[node name="ColorRect" type="TextureRect" parent="VBoxContainer/MarginContainer3/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+texture = ExtResource("2_fw02t")
+
+[node name="CenterContainer_setting" type="CenterContainer" parent="VBoxContainer/MarginContainer3/HBoxContainer/MarginContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -379.0
+offset_top = -285.0
+offset_right = 379.0
+offset_bottom = 285.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer3/HBoxContainer/MarginContainer/ColorRect/CenterContainer_setting"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer3/HBoxContainer/MarginContainer/ColorRect/CenterContainer_setting/VBoxContainer"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer3/HBoxContainer/MarginContainer/ColorRect/CenterContainer_setting/VBoxContainer"]
+layout_mode = 2
+
+[node name="Margin_left" type="MarginContainer" parent="VBoxContainer/MarginContainer3/HBoxContainer/MarginContainer/ColorRect/CenterContainer_setting/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer3/HBoxContainer/MarginContainer/ColorRect/CenterContainer_setting/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Margin_top" type="MarginContainer" parent="VBoxContainer/MarginContainer3/HBoxContainer/MarginContainer/ColorRect/CenterContainer_setting/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Label_volume" type="Label" parent="VBoxContainer/MarginContainer3/HBoxContainer/MarginContainer/ColorRect/CenterContainer_setting/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.513726, 0.580392, 0.376471, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_fdmqg")
+theme_override_font_sizes/font_size = 48
+text = "громкость"
+
+[node name="Margin_volume" type="MarginContainer" parent="VBoxContainer/MarginContainer3/HBoxContainer/MarginContainer/ColorRect/CenterContainer_setting/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 2
+
+[node name="Volume" type="HSlider" parent="VBoxContainer/MarginContainer3/HBoxContainer/MarginContainer/ColorRect/CenterContainer_setting/VBoxContainer/HBoxContainer/VBoxContainer/Margin_volume"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = -10.0
+max_value = 10.0
+
+[node name="Margin_top2" type="MarginContainer" parent="VBoxContainer/MarginContainer3/HBoxContainer/MarginContainer/ColorRect/CenterContainer_setting/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Mute" type="CheckBox" parent="VBoxContainer/MarginContainer3/HBoxContainer/MarginContainer/ColorRect/CenterContainer_setting/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_direction = 3
+layout_mode = 2
+theme_override_colors/font_color = Color(0.513726, 0.580392, 0.376471, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_28n8d")
+theme_override_font_sizes/font_size = 48
+text = "без звука                                              "
+alignment = 2
+icon_alignment = 1
+
+[node name="Margin_bottom" type="MarginContainer" parent="VBoxContainer/MarginContainer3/HBoxContainer/MarginContainer/ColorRect/CenterContainer_setting/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer3/HBoxContainer/MarginContainer/ColorRect/CenterContainer_setting/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer3/HBoxContainer/MarginContainer/ColorRect/CenterContainer_setting/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+
+[node name="Button_back" type="Button" parent="VBoxContainer/MarginContainer3/HBoxContainer/MarginContainer/ColorRect/CenterContainer_setting/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.513726, 0.580392, 0.376471, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_28n8d")
+theme_override_font_sizes/font_size = 48
+text = "назад
+"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer3/HBoxContainer/MarginContainer/ColorRect/CenterContainer_setting/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Margin_right" type="MarginContainer" parent="VBoxContainer/MarginContainer3/HBoxContainer/MarginContainer/ColorRect/CenterContainer_setting/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[connection signal="value_changed" from="VBoxContainer/MarginContainer3/HBoxContainer/MarginContainer/ColorRect/CenterContainer_setting/VBoxContainer/HBoxContainer/VBoxContainer/Margin_volume/Volume" to="." method="_on_volume_value_changed"]
+[connection signal="toggled" from="VBoxContainer/MarginContainer3/HBoxContainer/MarginContainer/ColorRect/CenterContainer_setting/VBoxContainer/HBoxContainer/VBoxContainer/Mute" to="." method="_on_check_box_toggled"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer3/HBoxContainer/MarginContainer/ColorRect/CenterContainer_setting/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/Button_back" to="." method="_on_button_pressed"]
